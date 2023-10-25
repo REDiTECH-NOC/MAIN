@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="cced80b2-d8ab-4b06-b510-12dfcf29ea90" Name="Advanced-lab4.2" Description="bGFiNC4y" Version="2.9.0.3" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="0.0.0">
+  <Object ID="{ddd0e451-2bb6-416e-8696-3c7076f365ac}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml&gt;&lt;Parameters&gt;&lt;Parameter ParameterName=&quot;idomainname&quot; Label=&quot;domain name to join (dns name .. ex domain.com)&quot; ParameterType=&quot;string&quot; Value=&quot;domain.com&quot; /&gt;&lt;Parameter ParameterName=&quot;iduser&quot; Label=&quot;domain user name (admin)&quot; ParameterType=&quot;string&quot; Value=&quot;administrator&quot; /&gt;&lt;Parameter ParameterName=&quot;idomainpwd&quot; Label=&quot;domain user password (admin)&quot; ParameterType=&quot;password&quot; Value=&quot;&quot; /&gt;&lt;Parameter ParameterName=&quot;ioutojoin&quot; Label=&quot;OU to join in the domain (leave empty if OU is default CN=Computers)&quot; ParameterType=&quot;string&quot; Value=&quot;DEFAULT&quot; /&gt;&lt;/Parameters&gt;&lt;/xml&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System" />
+  </LinkManager>
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>1488,1242</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="1488,1242" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:ComputerSystem AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" Description="[ComputerSystem_Description]" DisplayName="Get Computer System Information" Domain="[ComputerSystem_Domain]" sap:VirtualizedContainerService.HintSize="1452,81" Manufacturer="[ComputerSystem_Manufacturer]" Model="[ComputerSystem_Model]" Moniker="6500ec74-0480-4acf-9c02-50b9573ee841" Name="[ComputerSystem_Name]" NumberOfProcessors="[ComputerSystem_NumberOfProcessors]" PrimaryOwnerName="[ComputerSystem_PrimaryOwnerName]" Result="[ComputerSystem_Result]" ResultString="[ComputerSystem_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" Status="[ComputerSystem_Status]" SystemType="[ComputerSystem_SystemType]" TotalPhysicalMemory="[ComputerSystem_TotalPhysicalMemory]" TypeName="ComputerSystem" m_bTextLinkChange="False" />
+        <p:IfObject Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" Condition="does not contain" Condition_DisplayArg="does not contain" DisplayName="If" sap:VirtualizedContainerService.HintSize="1452,898" Moniker="00a7d751-39c2-434c-9d69-74699b51a7b3" Result="[IfObject_Result]" ResultString="[IfObject_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfObject" Value="[idomainname]" Value_DisplayArg="Input Parameters.domain name to join (dns name .. ex domain.com)" Value_Type="x:String" Variable="[ComputerSystem_Domain]" Variable_DisplayArg="Get Computer System Information.Domain" Variable_Type="x:String" m_bTextLinkChange="False">
+          <p:IfObject.IfOption>
+            <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="1420,697" Name="SequenceActivity">
+              <p:SequenceActivity.Activities>
+                <p:IfElse Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" Condition="equals" Condition_DisplayArg="equals" DisplayName="If/Else" sap:VirtualizedContainerService.HintSize="1382,547" Moniker="0660045d-27d4-40aa-8c00-e343d58515b5" Result="[IfElse_Result]" ResultString="[IfElse_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfElse" Value_DisplayArg="DEFAULT" Value_Type="x:String" Variable="[ioutojoin]" Variable_DisplayArg="Input Parameters.OU to join in the domain (leave empty if OU is default CN=Computers)" Variable_Type="x:String" m_bTextLinkChange="False">
+                  <p:IfElse.ElseOption>
+                    <p:SequenceActivity DisplayName="Else" sap:VirtualizedContainerService.HintSize="724,346" Name="SequenceActivity">
+                      <p:SequenceActivity.Activities>
+                        <p:JoinDomain DomPassword_Item="{x:Null}" DomPassword_ItemProp="{x:Null}" DomainUser_Item="{x:Null}" DomainUser_ItemProp="{x:Null}" Domain_Item="{x:Null}" Domain_ItemProp="{x:Null}" OrgUnit_Item="{x:Null}" OrgUnit_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" DisplayName="Join Domain" DomPassword="[idomainpwd]" DomPassword_DisplayArg="Input Parameters.domain user password (admin)" Domain="[idomainname]" DomainUser="[iduser]" DomainUser_DisplayArg="Input Parameters.domain user name (admin)" Domain_DisplayArg="Input Parameters.domain name to join (dns name .. ex domain.com)" sap:VirtualizedContainerService.HintSize="686,196" Moniker="596b2611-1717-4af5-ba65-e7587add6e26" OrgUnit="[ioutojoin]" OrgUnit_DisplayArg="Input Parameters.OU to join in the domain (leave empty if OU is default CN=Computers)" Result="[JoinDomain_Result]" ResultString="[JoinDomain_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="JoinDomain" m_bTextLinkChange="False" />
+                      </p:SequenceActivity.Activities>
+                      <p:SequenceActivity.Variables>
+                        <Variable x:TypeArguments="x:Double" Name="JoinDomain_Result" />
+                        <Variable x:TypeArguments="x:String" Name="JoinDomain_ResultString" />
+                      </p:SequenceActivity.Variables>
+                    </p:SequenceActivity>
+                  </p:IfElse.ElseOption>
+                  <p:IfElse.IfOption>
+                    <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="614,346" Name="SequenceActivity">
+                      <p:SequenceActivity.Activities>
+                        <p:JoinDomain DomPassword_Item="{x:Null}" DomPassword_ItemProp="{x:Null}" DomainUser_Item="{x:Null}" DomainUser_ItemProp="{x:Null}" Domain_Item="{x:Null}" Domain_ItemProp="{x:Null}" OrgUnit="{x:Null}" OrgUnit_DisplayArg="{x:Null}" OrgUnit_Item="{x:Null}" OrgUnit_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" DisplayName="Join Domain" DomPassword="[idomainpwd]" DomPassword_DisplayArg="Input Parameters.domain user password (admin)" Domain="[idomainname]" DomainUser="[iduser]" DomainUser_DisplayArg="Input Parameters.domain user name (admin)" Domain_DisplayArg="Input Parameters.domain name to join (dns name .. ex domain.com)" sap:VirtualizedContainerService.HintSize="576,196" Moniker="d6db9309-8149-47c6-b673-51e4450ff8f6" Result="[JoinDomain_Result_1]" ResultString="[JoinDomain_ResultString_1]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="JoinDomain" m_bTextLinkChange="False" />
+                      </p:SequenceActivity.Activities>
+                      <p:SequenceActivity.Variables>
+                        <Variable x:TypeArguments="x:Double" Name="JoinDomain_Result_1" />
+                        <Variable x:TypeArguments="x:String" Name="JoinDomain_ResultString_1" />
+                      </p:SequenceActivity.Variables>
+                    </p:SequenceActivity>
+                  </p:IfElse.IfOption>
+                  <p:IfElse.Value>
+                    <InArgument x:TypeArguments="x:Object">
+                      <p:ObjectLiteral Value="DEFAULT" />
+                    </InArgument>
+                  </p:IfElse.Value>
+                </p:IfElse>
+              </p:SequenceActivity.Activities>
+              <p:SequenceActivity.Variables>
+                <Variable x:TypeArguments="x:String" Name="IfElse_ResultString" />
+                <Variable x:TypeArguments="x:Double" Name="IfElse_Result" />
+              </p:SequenceActivity.Variables>
+            </p:SequenceActivity>
+          </p:IfObject.IfOption>
+        </p:IfObject>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_Domain" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_Model" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_Name" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_Manufacturer" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_PrimaryOwnerName" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_TotalPhysicalMemory" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_Description" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_Status" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_NumberOfProcessors" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_SystemType" />
+        <Variable x:TypeArguments="x:String" Name="ComputerSystem_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="ComputerSystem_Result" />
+        <Variable x:TypeArguments="x:String" Name="idomainname" />
+        <Variable x:TypeArguments="x:String" Name="iduser" />
+        <Variable x:TypeArguments="p:Password" Name="idomainpwd" />
+        <Variable x:TypeArguments="x:Double" Name="IfObject_Result" />
+        <Variable x:TypeArguments="x:String" Name="IfObject_ResultString" />
+        <Variable x:TypeArguments="x:String" Name="ioutojoin" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>

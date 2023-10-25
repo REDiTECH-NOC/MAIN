@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><Policy ID="e5c5438f-87d0-410f-9d7d-9e476ec2130c" Name="Lock Destkop if User Is Inactive" Description="TG9jayBEZXN0a29wIGlmIFVzZXIgSXMgSW5hY3RpdmU=" Version="2.15.1.1" RemoteCategory="0" ExecutionType="Local" MinimumPSVersionRequired="0.0.0">
+  <Object ID="{77d2485c-da4a-4c87-a3ab-4efd5b877204}" Type="{B6FA6D8B-EEAA-47A6-8463-7F9A4F5BBB6E}" Data="&lt;xml&gt;&lt;Parameters&gt;&lt;Parameter ParameterName=&quot;inmintime&quot; Label=&quot;Required Idle time before Locking Desktop (minutes)&quot; ParameterType=&quot;number&quot; Value=&quot;30&quot; /&gt;&lt;/Parameters&gt;&lt;/xml&gt;" />
+  <LinkManager xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/PolicyExecutor">
+    <hashset xmlns:d2p1="http://schemas.datacontract.org/2004/07/System" />
+  </LinkManager>
+  <Activity mc:Ignorable="sads sap" x:Class="Policy Builder" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="clr-namespace:PolicyExecutor;assembly=PolicyExecutionEngine" xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <x:Members>
+      <x:Property Name="PolicyGUID" Type="InArgument(x:String)" />
+    </x:Members>
+    <sap:VirtualizedContainerService.HintSize>1248.66666666667,1738</sap:VirtualizedContainerService.HintSize>
+    <mva:VisualBasic.Settings>Assembly references and imported namespaces serialized as XML namespaces</mva:VisualBasic.Settings>
+    <p:PolicySequence DisplayName="Policy Builder" sap:VirtualizedContainerService.HintSize="1248.66666666667,1738" mva:VisualBasic.Settings="Assembly references and imported namespaces serialized as XML namespaces">
+      <p:PolicySequence.Activities>
+        <p:IsUserLoggedOn Domain_Item="{x:Null}" Domain_ItemProp="{x:Null}" User_Item="{x:Null}" User_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" Conditional="[IsUserLoggedOn_Conditional]" DisplayName="Is User Logged On" Domain="*" Domain_DisplayArg="*" sap:VirtualizedContainerService.HintSize="1212.66666666667,124" Moniker="d448f761-a870-48c6-aeb3-4342c57030f1" Result="[IsUserLoggedOn_Result]" ResultString="[IsUserLoggedOn_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="IsUserLoggedOn" User="*" User_DisplayArg="*" m_bTextLinkChange="False" />
+        <p:IfElse Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" Condition="equals" Condition_DisplayArg="equals" DisplayName="If/Else" sap:VirtualizedContainerService.HintSize="1212.66666666667,1350.66666666667" Moniker="ea10ec75-67d8-483c-9890-7ff3f72a0bd0" Result="[IfElse_Result]" ResultString="[IfElse_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfElse" Value_DisplayArg="True" Value_Type="x:String" Variable="[IsUserLoggedOn_Conditional]" Variable_DisplayArg="Is User Logged On.Conditional" Variable_Type="x:String" m_bTextLinkChange="False">
+          <p:IfElse.ElseOption>
+            <p:SequenceActivity DisplayName="Else" sap:VirtualizedContainerService.HintSize="396,238.666666666667" Name="SequenceActivity">
+              <p:SequenceActivity.Activities>
+                <p:Log Message_Item="{x:Null}" Message_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.15.1.1, Culture=neutral, PublicKeyToken=null" DisplayName="Log" sap:VirtualizedContainerService.HintSize="358,88" LogMessage="[Log_LogMessage]" Message="User is Not Logged In. No Action" Message_DisplayArg="User is Not Logged In. No Action" Moniker="444f9566-28b7-4041-8ab1-2c8ca2f5c398" Result="[Log_Result]" ResultString="[Log_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="Log" m_bTextLinkChange="False" />
+              </p:SequenceActivity.Activities>
+              <p:SequenceActivity.Variables>
+                <Variable x:TypeArguments="x:String" Name="Log_LogMessage" />
+                <Variable x:TypeArguments="x:Double" Name="Log_Result" />
+                <Variable x:TypeArguments="x:String" Name="Log_ResultString" />
+              </p:SequenceActivity.Variables>
+            </p:SequenceActivity>
+          </p:IfElse.ElseOption>
+          <p:IfElse.IfOption>
+            <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="772.666666666667,1150.66666666667" Name="SequenceActivity">
+              <p:SequenceActivity.Activities>
+                <p:RunPowerShellScript AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" DisplayName="Run PowerShell Script" sap:VirtualizedContainerService.HintSize="734.666666666667,521.333333333333" Moniker="28abf901-7f5f-4d4e-9727-fe383c01db20" OutPut_64="[RunPowerShellScript_OutPut_64]" Result="[RunPowerShellScript_Result]" ResultString="[RunPowerShellScript_ResultString]" Results_x64="[RunPowerShellScript_Results_x64]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="RunPowerShellScript" genArgEvent="3688018c-b8d6-427c-b45a-6a2fd9e16382" m_bTextLinkChange="False" script="QQBkAGQALQBUAHkAcABlACAAQAAnAA0ACgB1AHMAaQBuAGcAIABTAHkAcwB0AGUAbQA7AA0ACgB1AHMAaQBuAGcAIABTAHkAcwB0AGUAbQAuAEQAaQBhAGcAbgBvAHMAdABpAGMAcwA7AA0ACgB1AHMAaQBuAGcAIABTAHkAcwB0AGUAbQAuAFIAdQBuAHQAaQBtAGUALgBJAG4AdABlAHIAbwBwAFMAZQByAHYAaQBjAGUAcwA7AA0ACgANAAoAbgBhAG0AZQBzAHAAYQBjAGUAIABQAEkAbgB2AG8AawBlAC4AVwBpAG4AMwAyACAAewANAAoADQAKACAAIAAgACAAcAB1AGIAbABpAGMAIABzAHQAYQB0AGkAYwAgAGMAbABhAHMAcwAgAFUAcwBlAHIASQBuAHAAdQB0ACAAewANAAoADQAKACAAIAAgACAAIAAgACAAIABbAEQAbABsAEkAbQBwAG8AcgB0ACgAIgB1AHMAZQByADMAMgAuAGQAbABsACIALAAgAFMAZQB0AEwAYQBzAHQARQByAHIAbwByAD0AZgBhAGwAcwBlACkAXQANAAoAIAAgACAAIAAgACAAIAAgAHAAcgBpAHYAYQB0AGUAIABzAHQAYQB0AGkAYwAgAGUAeAB0AGUAcgBuACAAYgBvAG8AbAAgAEcAZQB0AEwAYQBzAHQASQBuAHAAdQB0AEkAbgBmAG8AKAByAGUAZgAgAEwAQQBTAFQASQBOAFAAVQBUAEkATgBGAE8AIABwAGwAaQBpACkAOwANAAoADQAKACAAIAAgACAAIAAgACAAIABbAFMAdAByAHUAYwB0AEwAYQB5AG8AdQB0ACgATABhAHkAbwB1AHQASwBpAG4AZAAuAFMAZQBxAHUAZQBuAHQAaQBhAGwAKQBdAA0ACgAgACAAIAAgACAAIAAgACAAcAByAGkAdgBhAHQAZQAgAHMAdAByAHUAYwB0ACAATABBAFMAVABJAE4AUABVAFQASQBOAEYATwAgAHsADQAKACAAIAAgACAAIAAgACAAIAAgACAAIAAgAHAAdQBiAGwAaQBjACAAdQBpAG4AdAAgAGMAYgBTAGkAegBlADsADQAKACAAIAAgACAAIAAgACAAIAAgACAAIAAgAHAAdQBiAGwAaQBjACAAaQBuAHQAIABkAHcAVABpAG0AZQA7AA0ACgAgACAAIAAgACAAIAAgACAAfQANAAoADQAKACAAIAAgACAAIAAgACAAIABwAHUAYgBsAGkAYwAgAHMAdABhAHQAaQBjACAARABhAHQAZQBUAGkAbQBlACAATABhAHMAdABJAG4AcAB1AHQAIAB7AA0ACgAgACAAIAAgACAAIAAgACAAIAAgACAAIABnAGUAdAAgAHsADQAKACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAARABhAHQAZQBUAGkAbQBlACAAYgBvAG8AdABUAGkAbQBlACAAPQAgAEQAYQB0AGUAVABpAG0AZQAuAFUAdABjAE4AbwB3AC4AQQBkAGQATQBpAGwAbABpAHMAZQBjAG8AbgBkAHMAKAAtAEUAbgB2AGkAcgBvAG4AbQBlAG4AdAAuAFQAaQBjAGsAQwBvAHUAbgB0ACkAOwANAAoAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIABEAGEAdABlAFQAaQBtAGUAIABsAGEAcwB0AEkAbgBwAHUAdAAgAD0AIABiAG8AbwB0AFQAaQBtAGUALgBBAGQAZABNAGkAbABsAGkAcwBlAGMAbwBuAGQAcwAoAEwAYQBzAHQASQBuAHAAdQB0AFQAaQBjAGsAcwApADsADQAKACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAcgBlAHQAdQByAG4AIABsAGEAcwB0AEkAbgBwAHUAdAA7AA0ACgAgACAAIAAgACAAIAAgACAAIAAgACAAIAB9AA0ACgAgACAAIAAgACAAIAAgACAAfQANAAoADQAKACAAIAAgACAAIAAgACAAIABwAHUAYgBsAGkAYwAgAHMAdABhAHQAaQBjACAAVABpAG0AZQBTAHAAYQBuACAASQBkAGwAZQBUAGkAbQBlACAAewANAAoAIAAgACAAIAAgACAAIAAgACAAIAAgACAAZwBlAHQAIAB7AA0ACgAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgAHIAZQB0AHUAcgBuACAARABhAHQAZQBUAGkAbQBlAC4AVQB0AGMATgBvAHcALgBTAHUAYgB0AHIAYQBjAHQAKABMAGEAcwB0AEkAbgBwAHUAdAApADsADQAKACAAIAAgACAAIAAgACAAIAAgACAAIAAgAH0ADQAKACAAIAAgACAAIAAgACAAIAB9AA0ACgANAAoAIAAgACAAIAAgACAAIAAgAHAAdQBiAGwAaQBjACAAcwB0AGEAdABpAGMAIABpAG4AdAAgAEwAYQBzAHQASQBuAHAAdQB0AFQAaQBjAGsAcwAgAHsADQAKACAAIAAgACAAIAAgACAAIAAgACAAIAAgAGcAZQB0ACAAewANAAoAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIABMAEEAUwBUAEkATgBQAFUAVABJAE4ARgBPACAAbABpAGkAIAA9ACAAbgBlAHcAIABMAEEAUwBUAEkATgBQAFUAVABJAE4ARgBPACgAKQA7AA0ACgAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgAGwAaQBpAC4AYwBiAFMAaQB6AGUAIAA9ACAAKAB1AGkAbgB0ACkATQBhAHIAcwBoAGEAbAAuAFMAaQB6AGUATwBmACgAdAB5AHAAZQBvAGYAKABMAEEAUwBUAEkATgBQAFUAVABJAE4ARgBPACkAKQA7AA0ACgAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgAEcAZQB0AEwAYQBzAHQASQBuAHAAdQB0AEkAbgBmAG8AKAByAGUAZgAgAGwAaQBpACkAOwANAAoAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAAgACAAIAByAGUAdAB1AHIAbgAgAGwAaQBpAC4AZAB3AFQAaQBtAGUAOwANAAoAIAAgACAAIAAgACAAIAAgACAAIAAgACAAfQANAAoAIAAgACAAIAAgACAAIAAgAH0ADQAKACAAIAAgACAAfQANAAoAfQANAAoAJwBAAA0ACgANAAoAVwByAGkAdABlAC0ASABvAHMAdAAgACgAIgBMAGEAcwB0ACAAaQBuAHAAdQB0ACAAIgAgACsAIABbAFAASQBuAHYAbwBrAGUALgBXAGkAbgAzADIALgBVAHMAZQByAEkAbgBwAHUAdABdADoAOgBMAGEAcwB0AEkAbgBwAHUAdAApAA0ACgANAAoAVwByAGkAdABlAC0ASABvAHMAdAAgACgAIgBJAGQAbABlACAAZgBvAHIAIAAiACAAKwAgAFsAUABJAG4AdgBvAGsAZQAuAFcAaQBuADMAMgAuAFUAcwBlAHIASQBuAHAAdQB0AF0AOgA6AEkAZABsAGUAVABpAG0AZQApAA0ACgANAAoAIAAkAEkAZABsAGUAVABpAG0AZQByACAAPQAgACIATABhAHMAdAAgAGkAbgBwAHUAdAAgACIAIAArACAAWwBQAEkAbgB2AG8AawBlAC4AVwBpAG4AMwAyAC4AVQBzAGUAcgBJAG4AcAB1AHQAXQA6ADoATABhAHMAdABJAG4AcAB1AHQAIAArACAAIgAgAC0AIAAiACAAKwAgACIASQBkAGwAZQAgAGYAbwByACAAIgAgACsAIABbAFAASQBuAHYAbwBrAGUALgBXAGkAbgAzADIALgBVAHMAZQByAEkAbgBwAHUAdABdADoAOgBJAGQAbABlAFQAaQBtAGUADQAKACQASQBkAGwAZQBUAGkAbQBlACAAPQAgAFsAUABJAG4AdgBvAGsAZQAuAFcAaQBuADMAMgAuAFUAcwBlAHIASQBuAHAAdQB0AF0AOgA6AEkAZABsAGUAVABpAG0AZQAuAE0AaQBuAHUAdABlAHMADQAKAA0ACgAkAHMAbwBpAGQAbABlACAAPQAgACQASQBkAGwAZQBUAGkAbQBlAA0ACgANAAoADQAKAFsAUABJAG4AdgBvAGsAZQAuAFcAaQBuADMAMgAuAFUAcwBlAHIASQBuAHAAdQB0AF0AOgA6AEkAZABsAGUAVABpAG0AZQAuAE0AaQBuAHUAdABlAHMADQAKAFsAUABJAG4AdgBvAGsAZQAuAFcAaQBuADMAMgAuAFUAcwBlAHIASQBuAHAAdQB0AF0AOgA6AEkAZABsAGUAVABpAG0AZQAuAFMAZQBjAG8AbgBkAHMA">
+                  <p:RunPowerShellScript.InArgs>
+                    <scg:Dictionary x:TypeArguments="x:String, p:InArg" />
+                  </p:RunPowerShellScript.InArgs>
+                  <p:RunPowerShellScript.OutArgs>
+                    <p:OutArg x:Key="soidle" ArgType="number" DisplayName="soidle" Name="soidle">
+                      <p:OutArg.Arg>
+                        <OutArgument x:TypeArguments="x:Double">[RunPowerShellScript_soidle]</OutArgument>
+                      </p:OutArg.Arg>
+                    </p:OutArg>
+                  </p:RunPowerShellScript.OutArgs>
+                </p:RunPowerShellScript>
+                <p:IfElse Condition_Item="{x:Null}" Condition_ItemProp="{x:Null}" Value_Item="{x:Null}" Value_ItemProp="{x:Null}" Variable_Item="{x:Null}" Variable_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.9.0.3, Culture=neutral, PublicKeyToken=null" Condition="greater than" Condition_DisplayArg="greater than" DisplayName="If/Else" sap:VirtualizedContainerService.HintSize="734.666666666667,438.666666666667" Moniker="5530b47c-7c05-4b02-be18-41c7dfc1fdaf" Result="[IfElse_Result_1]" ResultString="[IfElse_ResultString_1]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="IfElse" Value="[inmintime]" Value_DisplayArg="Input Parameters.Required Idle time before Locking Desktop (minutes)" Value_Type="x:Double" Variable="[RunPowerShellScript_soidle]" Variable_DisplayArg="Run PowerShell Script.soidle" Variable_Type="x:Double" m_bTextLinkChange="False">
+                  <p:IfElse.ElseOption>
+                    <p:SequenceActivity DisplayName="Else" sap:VirtualizedContainerService.HintSize="472,238.666666666667" Name="SequenceActivity">
+                      <p:SequenceActivity.Activities>
+                        <p:Log Message_Item="{x:Null}" Message_ItemProp="{x:Null}" AssemblyName="PolicyExecutionEngine, Version=2.15.1.1, Culture=neutral, PublicKeyToken=null" DisplayName="Log" sap:VirtualizedContainerService.HintSize="434,88" LogMessage="[Log_LogMessage_1]" Message="User Has not been inactive long enough. No Action" Message_DisplayArg="User Has not been inactive long enough. No Action" Moniker="72d61ca8-322b-44bf-a0d8-122d37a942c9" Result="[Log_Result_1]" ResultString="[Log_ResultString_1]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="ExecuteDebug" TypeName="Log" m_bTextLinkChange="False" />
+                      </p:SequenceActivity.Activities>
+                      <p:SequenceActivity.Variables>
+                        <Variable x:TypeArguments="x:String" Name="Log_LogMessage_1" />
+                        <Variable x:TypeArguments="x:Double" Name="Log_Result_1" />
+                        <Variable x:TypeArguments="x:String" Name="Log_ResultString_1" />
+                      </p:SequenceActivity.Variables>
+                    </p:SequenceActivity>
+                  </p:IfElse.ElseOption>
+                  <p:IfElse.IfOption>
+                    <p:SequenceActivity DisplayName="Then" sap:VirtualizedContainerService.HintSize="218.666666666667,230.666666666667" Name="SequenceActivity">
+                      <p:SequenceActivity.Activities>
+                        <p:LockWorkstation AssemblyName="PolicyExecutionEngine, Version=2.15.1.1, Culture=neutral, PublicKeyToken=null" DisplayName="Lock Workstation" sap:VirtualizedContainerService.HintSize="180.666666666667,80" Moniker="10918eee-2302-449e-9fd6-9c9bec65bd7d" Result="[LockWorkstation_Result]" ResultString="[LockWorkstation_ResultString]" RunAsCurrentLoggedOnUser="False" ScriptExecutionMethod="None" TypeName="LockWorkstation" m_bTextLinkChange="False" />
+                      </p:SequenceActivity.Activities>
+                      <p:SequenceActivity.Variables>
+                        <Variable x:TypeArguments="x:String" Name="LockWorkstation_ResultString" />
+                        <Variable x:TypeArguments="x:Double" Name="LockWorkstation_Result" />
+                      </p:SequenceActivity.Variables>
+                    </p:SequenceActivity>
+                  </p:IfElse.IfOption>
+                </p:IfElse>
+              </p:SequenceActivity.Activities>
+              <p:SequenceActivity.Variables>
+                <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_OutPut_64" />
+                <Variable x:TypeArguments="x:String" Name="RunPowerShellScript_ResultString" />
+                <Variable x:TypeArguments="scg:IEnumerable(x:Object)" Name="RunPowerShellScript_Results_x64" />
+                <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_Result" />
+                <Variable x:TypeArguments="x:Double" Name="RunPowerShellScript_soidle" />
+                <Variable x:TypeArguments="x:String" Name="IfElse_ResultString_1" />
+                <Variable x:TypeArguments="x:Double" Name="IfElse_Result_1" />
+              </p:SequenceActivity.Variables>
+            </p:SequenceActivity>
+          </p:IfElse.IfOption>
+          <p:IfElse.Value>
+            <InArgument x:TypeArguments="x:Object">
+              <p:ObjectLiteral Value="True" />
+            </InArgument>
+          </p:IfElse.Value>
+        </p:IfElse>
+      </p:PolicySequence.Activities>
+      <p:PolicySequence.Variables>
+        <Variable x:TypeArguments="x:String" Name="IsUserLoggedOn_Conditional" />
+        <Variable x:TypeArguments="x:String" Name="IsUserLoggedOn_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="IsUserLoggedOn_Result" />
+        <Variable x:TypeArguments="x:String" Name="IfElse_ResultString" />
+        <Variable x:TypeArguments="x:Double" Name="IfElse_Result" />
+        <Variable x:TypeArguments="x:Double" Default="30" Name="inmintime" />
+      </p:PolicySequence.Variables>
+    </p:PolicySequence>
+  </Activity>
+</Policy>
