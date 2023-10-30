@@ -1,4 +1,5 @@
-#Start and Stop a CONTAINER
+# Docker Commands
+Start and Stop a CONTAINER    
 options are stop, start, restart
 > sudo docker stop "container name"
 
