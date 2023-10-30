@@ -19,3 +19,18 @@ Connect-ExchangeOnline
 ```
 Connect-ExchangeOnline -DelegatedOrganization customertenant.onmicrosoft.com
 ```
+## Get junk email Configiration
+```
+Get-MailboxJunkEmailConfiguration -identity "user email address"
+```
+## How to get Service Plan IDs
+connect to azure AD
+```
+Get-AzureADSubscribedSKU
+```
+Copy the objectID of the one you want
+```
+Get-AzureADSubscribedSku -objectid "the object id you copied" | select -expand serviceplans
+```
+
+
