@@ -3,8 +3,7 @@
 <pre>
 Install-Module -Name AzureAD
 
-> To connect to Azure AD
-
+> To connect to Azure AD <
 Connect-AzureAD
 </pre>
 ## Install Exchange Online Module
