@@ -30,21 +30,16 @@ Change folder permissions:
 • chmod -R 777 (this will give full rights to everyone) 
 </pre>
 Change folder ownership:
-<pre>
-Change owner of a file or directory:
-    &gt; chown newowner filename
-
+```Change owner of a file or directory:```
+	```chown newowner filename```
 Change owner and group of a file or directory:
-    &gt; chown newowner:newgroup filename
-
+	> chown newowner:newgroup filename
 Change owner of a directory and its contents recursively:
-    &gt; chown -R newowner directory/
-
+	> chown -R newowner directory/
 Change only the group of a file or directory:
-    &gt; chown :newgroup filename
-
+	> chown :newgroup filename
 Preserve the root user as the owner while changing group:
-    &gt; chown root:newgroup filename
+	> chown root:newgroup filename
 </pre>
 
 
