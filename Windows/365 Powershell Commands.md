@@ -3,7 +3,7 @@
 <pre>
 - Install-Module -Name AzureAD
 
-connect to Azure AD
+To connect to Azure AD
 
 - Connect-AzureAD
 </pre>
