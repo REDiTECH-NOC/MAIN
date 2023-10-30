@@ -16,11 +16,11 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 apt-cache policy docker-ce
 ```
 > docker-ce:
-  Installed: (none)
-  Candidate: 5:19.03.9~3-0~ubuntu-focal
-  Version table:
-     5:19.03.9~3-0~ubuntu-focal 500
-        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+>   Installed: (none)
+>   Candidate: 5:19.03.9~3-0~ubuntu-focal
+>   Version table:
+>      5:19.03.9~3-0~ubuntu-focal 500
+>         500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
             
 ```
 sudo apt install docker-ce
