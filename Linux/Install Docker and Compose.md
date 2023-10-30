@@ -21,7 +21,6 @@ Make sure you are about to install from the Docker repo instead of the default U
 ```
 apt-cache policy docker-ce
 ```
-Here is an output example you should see.
 <pre>
  docker-ce:
    Installed: (none)
