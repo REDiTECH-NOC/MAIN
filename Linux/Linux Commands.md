@@ -32,7 +32,9 @@ Change folder permissions:
 Change folder ownership:
 <pre>
 Change owner of a file or directory:
-	```chown newowner filename```
+	```
+	chown newowner filename
+	```
 Change owner and group of a file or directory:
 	> chown newowner:newgroup filename
 Change owner of a directory and its contents recursively:
