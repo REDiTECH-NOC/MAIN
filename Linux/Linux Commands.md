@@ -29,8 +29,9 @@ Change folder permissions:
 • chmod -R (this is recursive and will change subdirectories also) 
 • chmod -R 777 (this will give full rights to everyone) 
 </pre>
+
+Change folder ownership:   
 <pre>
-# Change folder ownership:   
 Change owner of a file or directory:
   • chown newowner "file or directory"
 Change owner and group of a file or directory:
