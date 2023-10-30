@@ -1,6 +1,6 @@
 # Docker Commands
 Start and Stop a CONTAINER    
-options are stop, start, restart
+- options are stop, start, restart
 > sudo docker stop "container name"
 
 List docker containers running:
