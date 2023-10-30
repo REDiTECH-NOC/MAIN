@@ -15,8 +15,8 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 ```
 apt-cache policy docker-ce
 ```
-``` Should get something like this
-docker-ce:
+Should get something like this
+```docker-ce:
   Installed: (none)
   Candidate: 5:19.03.9~3-0~ubuntu-focal
   Version table:
