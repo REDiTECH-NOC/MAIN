@@ -7,7 +7,7 @@ connect to Azure AD
 ```
 Connect-AzureAD
 ```
-## Install Exchange Online Module
+## -Install Exchange Online Module
 ```
 Install-Module -Name ExchangeOnlineManagement
 ```
