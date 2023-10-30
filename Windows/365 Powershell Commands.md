@@ -1,5 +1,5 @@
-# Various Commands to use with powershell for managing microsoft 365 
-## Install Azure AD module
+# Commands to use with powershell for managing microsoft 365 
+## -Install Azure AD module
 ```
 Install-Module -Name AzureAD
 ```
@@ -19,7 +19,7 @@ Conenct to Exchnage online
 ```
 Connect-ExchangeOnline
 ```
-## Login with partner portal credentials
+## -Login with partner portal credentials
 ```
 Connect-ExchangeOnline -DelegatedOrganization customertenant.onmicrosoft.com
 ```
