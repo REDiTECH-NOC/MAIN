@@ -20,6 +20,6 @@ de5b28eb2fa9   portainer/portainer-ce:latest  "/portainer"             2 weeks a
 </pre>
 
 Login:          
-```
-https://localhost:9443
-```
+
+> https://localhost:9443
+
