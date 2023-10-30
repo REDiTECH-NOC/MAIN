@@ -19,3 +19,7 @@ Conenct to Exchnage online
 ```
 Connect-ExchangeOnline
 ```
+## Login with partner portal credentials
+```
+Connect-ExchangeOnline -DelegatedOrganization customertenant.onmicrosoft.com
+```
