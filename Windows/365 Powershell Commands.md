@@ -12,7 +12,7 @@ Install-Module -Name ExchangeOnlineManagement
 >Import the module<
 Import-Module ExchangeOnlineManagement
 
->Connect to Exchnage online<
+>Connect to Exchange online<
 Connect-ExchangeOnline
 </pre>
 ## Login with partner portal credentials
