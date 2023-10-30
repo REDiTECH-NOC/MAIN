@@ -30,27 +30,17 @@ Change folder permissions:
 • chmod -R 777 (this will give full rights to everyone) 
 </pre>
 <pre>
-Change folder ownership:   
-```Change owner of a file or directory:```
-```
-chown newowner "file or directory"
-```
-```Change owner and group of a file or directory:```
-```
-chown newowner:newgroup "file or directory"
-```
-```Change owner of a directory and its contents recursively:```
-```
-chown -R newowner "file or directory"
-```
-```Change only the group of a file or directory:```
-```
-chown :newgroup "file or directory"
-```
-```Preserve the root user as the owner while changing group:```
-```
-chown root:newgroup "file or directory"
-```
+# Change folder ownership:   
+Change owner of a file or directory:
+  • chown newowner "file or directory"
+Change owner and group of a file or directory:
+  • chown newowner:newgroup "file or directory"
+Change owner of a directory and its contents recursively:
+  • chown -R newowner "file or directory"
+Change only the group of a file or directory:
+  • chown :newgroup "file or directory"
+Preserve the root user as the owner while changing group:
+  • chown root:newgroup "file or directory"
 </pre>
 Install Net tool
 ```
