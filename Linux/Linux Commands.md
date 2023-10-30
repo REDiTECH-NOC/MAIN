@@ -29,6 +29,7 @@ Change folder permissions:
 • chmod -R (this is recursive and will change subdirectories also) 
 • chmod -R 777 (this will give full rights to everyone) 
 </pre>
+<pre>
 Change folder ownership:   
 ```Change owner of a file or directory:```
 ```
@@ -50,7 +51,7 @@ chown :newgroup "file or directory"
 ```
 chown root:newgroup "file or directory"
 ```
-
+</pre>
 Install Net tool
 ```
 sudo apt update && sudo apt-get install net-tools
