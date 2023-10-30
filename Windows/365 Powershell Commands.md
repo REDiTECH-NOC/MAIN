@@ -1,11 +1,11 @@
 # Commands to use with powershell for managing microsoft 365 
 ## Install Azure AD module
 <pre>
-- Install-Module -Name AzureAD
-
+Install-Module -Name AzureAD
+</pre>
 To connect to Azure AD
-
-- Connect-AzureAD
+<pre>
+Connect-AzureAD
 </pre>
 ## Install Exchange Online Module
 ```
