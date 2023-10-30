@@ -21,3 +21,15 @@ Login:
 ```
 https://localhost:9443
 ```
+
+
+
+# How to update Portainer
+stop container:
+```docker stop portainer```
+remove old container:
+```docker rm portainer```
+Pull the new image:
+```docker pull portainer/portainer-ce:latest```
+Run the new container:
+```docker run -d -p 8000:8000 -p 9443:9443 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v /srv/config/portainer_data:/data portainer/portainer-ce:latest```
