@@ -32,17 +32,24 @@ Change folder permissions:
 Change folder ownership:   
 ```Change owner of a file or directory:```
 ```
-chown newowner filename
+chown newowner "file or directory"
 ```
-Change owner and group of a file or directory:
-	> chown newowner:newgroup filename
-Change owner of a directory and its contents recursively:
-	> chown -R newowner directory/
-Change only the group of a file or directory:
-	> chown :newgroup filename
-Preserve the root user as the owner while changing group:
-	> chown root:newgroup filename
-
+```Change owner and group of a file or directory:```
+```
+chown newowner:newgroup "file or directory"
+```
+```Change owner of a directory and its contents recursively:```
+```
+chown -R newowner "file or directory"
+```
+```Change only the group of a file or directory:```
+```
+chown :newgroup "file or directory"
+```
+```Preserve the root user as the owner while changing group:```
+```
+chown root:newgroup "file or directory"
+```
 
 Install Net tool
 ```
