@@ -1,11 +1,21 @@
-# ESXI Commands
-Repair a VMDK "Object type requires hosted I/O":
-```ssh into host```
+# Various Commands to use with powershell for managing microsoft 365 
+## Install Azure AD module
 ```
-vmkfstools -x check “disk.vmdk”
+Install-Module -Name AzureAD
 ```
-That should say disk needs reapired
+connect to Azure AD
 ```
-vmkfstools -x repair “disk.vmdk”
+Connect-AzureAD
 ```
-That should say successfully repaired
+## Install Exchange Online Module
+```
+Install-Module -Name ExchangeOnlineManagement
+```
+Import the module
+```
+Import-Module ExchangeOnlineManagement
+```
+Conenct to Exchnage online
+```
+Connect-ExchangeOnline
+```
