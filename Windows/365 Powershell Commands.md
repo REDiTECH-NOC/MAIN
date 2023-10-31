@@ -32,5 +32,13 @@ Copy the objectID of the one you want
 ```
 Get-AzureADSubscribedSku -objectid "the object id you copied" | select -expand serviceplans
 ```
+## How to get Blocked Senders and Domains for a user 
+```
+ (Get-MailboxJunkEmailConfiguration -Identity user@email.com).BlockedSendersAndDomains
+```
+Or Specify a domain
+```
+(Get-MailboxJunkEmailConfiguration -Identity user@email.com).BlockedSendersAndDomains | Where-Object { $_ -like "*@reditech.com" }
 
+```
 
